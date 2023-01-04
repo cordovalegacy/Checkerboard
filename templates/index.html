@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +8,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='./css/style.css') }}">
     <title>Checkerboard</title>
 </head>
+
 <body>
-    <div class="board-container">
-        <h1>Checkerboard</h1>
-        {% for i in range(0, num_1) %}
-        <div class="checkers-for-num-1"></div>
-        <br/>
-        {% for i in range(0, num_2) %}
-        <div class="checkers-for-num-2"></div>
-        {% endfor %}
-    </div>
+    <h1>Checkerboard</h1>
+    <hr />
+    <br />
+    <table class="board-container">
+        <tbody>
+            {% for i in range(0, num_1) %}
+            <tr>
+                {% for x in range(0, num_2) %}
+                    {% if (x+i) % 2 == 0 %}
+                        <td class="checker-1"></td>
+                    {% else %}
+                        <td class="checker-2"></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
+
 </html>
